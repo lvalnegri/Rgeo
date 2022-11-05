@@ -1,0 +1,29 @@
+Package: Rgeo
+Type: Package
+Date: 2022-11-01
+Title: Generic functions related to GIS functionalities
+Version: 0.0.1
+Authors@R: person(given = "Luca", family = "Valnegri", email = "l.valnegri@datamaps.co.uk", role = c("aut", "cre"))
+Description: Generic functions related to GIS functionalities, Geostatistics, and Spatial Analysis.
+License: MIT + file LICENSE
+Language: en-GB
+Encoding: UTF-8
+URL: https://github.com/lvalnegri/Rgeo
+BugReports: https://github.com/lvalnegri/Rgeo/issues
+Depends: R (>= 4.1)
+Imports:
+    data.table,
+    dplyr,
+    Rfuns,
+    rlang,
+    sf,
+    utils
+Suggests:
+    knitr,
+    rmarkdown
+Remotes:
+    lvalnegri/Rfuns
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+VignetteBuilder: knitr
