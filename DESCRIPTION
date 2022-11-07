@@ -15,7 +15,6 @@ Imports:
     data.table,
     dplyr,
     Rfuns,
-    rlang,
     sf,
     utils
 Suggests:

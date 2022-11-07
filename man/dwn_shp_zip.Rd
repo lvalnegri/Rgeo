@@ -6,34 +6,45 @@
 \usage{
 dwn_shp_zip(
   url,
-  cname_old = NA,
-  cname_new = NA,
+  cnms_old = NULL,
+  cnms_new = NULL,
   crs = NULL,
   out_path = NULL,
+  as_dt = FALSE,
   top = NULL,
+  lst = FALSE,
+  pos_shf = NA,
   verbose = FALSE
 )
 }
 \arguments{
-\item{url}{a url for a zipped file containing one \emph{shapefile}}
+\item{url}{A url for a zipped file containing one or more \emph{shapefile} (see \code{pos_shf} on how to deal with multiple files)}
 
-\item{cname_old}{When not \code{NA}, and a so-called column exists, the returned object will have only that column}
+\item{cnms_old}{When not \code{NULL}, and all the involved columns exist, the returned object will have only those columns}
 
-\item{cname_new}{When not \code{NA},}
+\item{cnms_new}{When not \code{NULL}, and \code{cnms_old} and \code{cnms_new} fit together in length, names in \code{cnms_old} are orderly changed with the ones in \code{cnms_new}}
 
-\item{crs}{If not \code{NULL},}
+\item{crs}{If not \code{NULL}, and a valid \emph{CRS}, the spatial object is transformed accordingly}
 
-\item{out_path}{If not \code{NULL},}
+\item{out_path}{If not \code{NULL}, and \code{out_path} is a valid folder, the \emph{shapefile} will be unzipped therein.
+Otherwise, a temporary folder is used, and dropped afterwards.}
 
-\item{top}{If not \code{NULL}, returns only the first \code{top} complete records, disregarding all other options.}
+\item{as_dt}{When \code{TRUE}, the geometry column is dropped, returning a \code{data.table}.}
 
-\item{verbose}{When \code{TRUE} highlight with messages all operations.}
+\item{top}{If not \code{NULL}, only the first \code{top} complete records are returned, \emph{disregarding all other options}.}
+
+\item{lst}{If \code{TRUE}, only the names of the included \emph{shapefile(s)} are returned, \emph{disregarding all other options}.}
+
+\item{pos_shf}{If not \code{NA}, returns the $pos_shf$-th included \emph{shapefile} when all are sorted alphabetically
+You should use \code{lst = TRUE} beforehand to be sure of the correct position of the desired files.}
+
+\item{verbose}{When \code{TRUE}, the start of all ongoing operations is highlighted with a message.}
 }
 \value{
-an \code{sf} object
+an \code{sf} object or a \code{data.table}
 }
 \description{
-Download a zipped \emph{shapefile} and returns it as an \code{sf} object.
+Download a zipped \emph{shapefile} and return it as an \code{sf} object.
 }
 \author{
 Luca Valnegri, \email{l.valnegri@datamaps.co.uk}
